@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "KxxF9XskeDp3Zs70FkJ7J2ZZ7VIo5JOvzUqqQ3zeM/XI0E+flhX5hVd7QBHV+fd2IRAUVxDcTtWLhdYfng17UA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\boarf\\Desktop\\Visual Studio Workspace\\Repos new\\EstateZoningApp.Core\\EstateZoningApp.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\boarf\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
