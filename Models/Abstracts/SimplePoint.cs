@@ -1,8 +1,8 @@
 ﻿
 namespace EstateZoningApp.Core.Models.Abstracts;
-public abstract class SimplePoint : BaseModel
+public  class SimplePoint : BaseModel
 {
-    protected SimplePoint()
+    public SimplePoint()
     {
     }
 
@@ -20,7 +20,6 @@ public abstract class SimplePoint : BaseModel
         {
             if (_X != value)
             {
-                OnPropertyChanging(nameof(X));
                 _X = value;
                 OnPropertyChanged(nameof(X));
             }
@@ -35,13 +34,74 @@ public abstract class SimplePoint : BaseModel
         {
             if (_Y != value)
             {
-                OnPropertyChanging(nameof(Y));
                 _Y = value;
                 OnPropertyChanged(nameof(Y));
             }
         }
     }
 
+    double _Width;
+    public double Width
+    {
+        get => _Width;
+        set
+        {
+            if (_Width != value)
+            {
+                _Width = value;
+                OnPropertyChanged(nameof(Width));
+            }
+        }
+    }
+
+    double _Height;
+    public double Height
+    {
+        get => _Height;
+        set
+        {
+            if (_Height != value)
+            {
+                _Height = value;
+                OnPropertyChanged(nameof(Height));
+            }
+        }
+    }
+
+    //nonpersistent
+    double _Scale;
+    public double Scale
+    {
+        get => _Scale;
+        set
+        {
+            if (_Scale != value)
+            {
+                _Scale = value;
+                OnPropertyChanged(nameof(Scale));
+                OnPropertyChanged(nameof(X));
+                OnPropertyChanged(nameof(Y));
+                OnPropertyChanged(nameof(Height));
+                OnPropertyChanged(nameof(Width));
+            }
+        }
+    }
+
+    SimplePoint _NextPoint;
+    public SimplePoint NextPoint
+    {
+        get => _NextPoint;
+        set
+        {
+            if (_NextPoint != value)
+            {
+                _NextPoint = value;
+                OnPropertyChanged(nameof(NextPoint));
+            }
+        }
+    }
+
+    //association to icon model
     int _IconId;
     public int IconId
     {
@@ -50,9 +110,37 @@ public abstract class SimplePoint : BaseModel
         {
             if (_IconId != value)
             {
-                OnPropertyChanging(nameof(IconId));
                 _IconId = value;
                 OnPropertyChanged(nameof(IconId));
+            }
+        }
+    }
+
+    string _ImagePath;
+    public string ImagePath
+    {
+        get => _ImagePath;
+        set
+        {
+            if (_ImagePath != value)
+            {
+                _ImagePath = value;
+                OnPropertyChanged(nameof(ImagePath));
+            }
+        }
+    }
+
+    //nonpersistent
+    bool _IsSelected;
+    public bool IsSelected
+    {
+        get => _IsSelected;
+        set
+        {
+            if (_IsSelected != value)
+            {
+                _IsSelected = value;
+                OnPropertyChanged(nameof(IsSelected));
             }
         }
     }
