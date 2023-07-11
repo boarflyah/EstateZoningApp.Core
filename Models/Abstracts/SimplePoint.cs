@@ -1,6 +1,6 @@
 ﻿
 namespace EstateZoningApp.Core.Models.Abstracts;
-public  class SimplePoint : BaseModel
+public class SimplePoint : BaseModel
 {
     public SimplePoint()
     {
