@@ -3,6 +3,11 @@
 namespace EstateZoningApp.Core.Models.Abstracts;
 public class SimpleShape: BaseModel
 {
+    public SimpleShape()
+    {
+        Points = new();
+    }
+
     public int Id
     {
         get; set;
