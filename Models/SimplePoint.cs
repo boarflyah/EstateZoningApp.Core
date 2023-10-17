@@ -1,5 +1,7 @@
-﻿
-namespace EstateZoningApp.Core.Models.Abstracts;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using EstateZoningApp.Core.Models.Abstracts;
+
+namespace EstateZoningApp.Core.Models;
 public class SimplePoint : BaseModel
 {
     public SimplePoint()
@@ -70,6 +72,7 @@ public class SimplePoint : BaseModel
 
     //nonpersistent
     double _Scale;
+    [NotMapped]
     public double Scale
     {
         get => _Scale;
@@ -87,34 +90,36 @@ public class SimplePoint : BaseModel
         }
     }
 
-    SimplePoint _NextPoint;
-    public SimplePoint NextPoint
-    {
-        get => _NextPoint;
-        set
-        {
-            if (_NextPoint != value)
-            {
-                _NextPoint = value;
-                OnPropertyChanged(nameof(NextPoint));
-            }
-        }
-    }
+    //SimplePoint _NextPoint;
+    //[NotMapped]
+    //public SimplePoint NextPoint
+    //{
+    //    get => _NextPoint;
+    //    set
+    //    {
+    //        if (_NextPoint != value)
+    //        {
+    //            _NextPoint = value;
+    //            OnPropertyChanged(nameof(NextPoint));
+    //        }
+    //    }
+    //}
 
-    //association to icon model
-    int _IconId;
-    public int IconId
-    {
-        get => _IconId;
-        set
-        {
-            if (_IconId != value)
-            {
-                _IconId = value;
-                OnPropertyChanged(nameof(IconId));
-            }
-        }
-    }
+    ////association to icon model
+    //int _IconId;
+    //[NotMapped]
+    //public int IconId
+    //{
+    //    get => _IconId;
+    //    set
+    //    {
+    //        if (_IconId != value)
+    //        {
+    //            _IconId = value;
+    //            OnPropertyChanged(nameof(IconId));
+    //        }
+    //    }
+    //}
 
     string _ImagePath;
     public string ImagePath
@@ -132,6 +137,7 @@ public class SimplePoint : BaseModel
 
     //nonpersistent
     bool _IsSelected;
+    [NotMapped]
     public bool IsSelected
     {
         get => _IsSelected;
@@ -143,5 +149,17 @@ public class SimplePoint : BaseModel
                 OnPropertyChanged(nameof(IsSelected));
             }
         }
+    }
+
+    public virtual SimpleShape SimpleShape
+    {
+        get;
+        set;
+    }
+
+    public virtual Project Project
+    {
+        get;
+        set;
     }
 }

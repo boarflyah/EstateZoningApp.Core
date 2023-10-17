@@ -1,7 +1,8 @@
 ﻿using System.Collections.ObjectModel;
+using EstateZoningApp.Core.Models.Abstracts;
 
-namespace EstateZoningApp.Core.Models.Abstracts;
-public class SimpleShape: BaseModel
+namespace EstateZoningApp.Core.Models;
+public class SimpleShape : BaseModel
 {
     public SimpleShape()
     {
@@ -41,6 +42,12 @@ public class SimpleShape: BaseModel
                 OnPropertyChanged(nameof(Points));
             }
         }
+    }
+
+    public virtual Project Project
+    {
+        get;
+        set;
     }
 
     public ObservableCollection<SimplePoint> Points
